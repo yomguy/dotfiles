@@ -10,11 +10,13 @@
 # - Install tmux
 # - Install zsh
 
-#ln -s dotfiles/.shellrc $HOME/.shellrc
-#ln -s dotfiles/.inputrc $HOME/.inputrc
-#ln -s dotfiles/.tmux.conf $HOME/.tmux.conf
-#ln -s dotfiles/.vimrc $HOME/.vimrc
-#echo '. $HOME/.shellrc' >> $HOME/.zshrc
+local_dir=`pwd`
+
+ln -s $local_dir/.shellrc $HOME/.shellrc
+ln -s $local_dir/.inputrc $HOME/.inputrc
+ln -s $local_dir/.tmux.conf $HOME/.tmux.conf
+ln -s $local_dir/.vimrc $HOME/.vimrc
+echo '. $HOME/.shellrc' >> $HOME/.zshrc
 
 function config_neovim {
   # Neovim symbolic link config file

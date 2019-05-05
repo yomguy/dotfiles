@@ -26,9 +26,9 @@ Plug 'posva/vim-vue'
 " Plug 'klen/python-mode'
 
 " ----------- Themes --------- 
-Plug 'ayu-theme/ayu-vim'
+" Plug 'ayu-theme/ayu-vim'
 " Plug 'altercation/vim-colors-solarized'
-" Plug 'tomasr/molokai'
+ Plug 'tomasr/molokai'
 " Plug 'mhartington/oceanic-next'
 " Plug 'junegunn/seoul256.vim'
 
@@ -45,6 +45,8 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'junegunn/vim-easy-align'
+Plug 'python-mode/python-mode', { 'branch': 'master' }
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -60,7 +62,7 @@ set cursorline
 if has('termguicolors') " Terminal with True colors enabled. See https://gist.github.com/XVilka/8346728
   set termguicolors
   let ayucolor="mirage" " for mirage version of theme
-  colorscheme ayu
+  colorscheme molokai
 endif
 
 if has('gui_running') " Setup for the visual environment
@@ -123,6 +125,9 @@ let g:go_fmt_command = "goimports"
 "    endif
 "  endif
 "endfunction
+
+nmap <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " ---------------------------------------------------------------------------
 " operational settings
@@ -214,3 +219,6 @@ let g:syntastic_nasm_nasm_post_args = "-f elf64"
 
 " ---------- Go Specific ----------  
 autocmd FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8 et
+
+" remove trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
