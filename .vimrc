@@ -1,4 +1,4 @@
-" ----------- Reminder --------- 
+" ----------- Reminder ---------
 "  Reminder :
 "  :tabe && gt to switch tab
 "  :vnew
@@ -6,10 +6,10 @@
 "  CTRL + P
 "  ci) ==> Change inside parentheses
 
-" ----------- Plugins --------- 
+" ----------- Plugins ---------
 call plug#begin('~/.vim/plugged')
 
-" ---------- Languages ---------- 
+" ---------- Languages ----------
 Plug 'wting/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'alvan/vim-closetag'		  " Automatically close HTML/XML tags
@@ -25,14 +25,14 @@ Plug 'posva/vim-vue'
 " Plug 'LeBarbu/vim-epitech'	          " Headers && indentation stuff
 " Plug 'klen/python-mode'
 
-" ----------- Themes --------- 
+" ----------- Themes ---------
 " Plug 'ayu-theme/ayu-vim'
 " Plug 'altercation/vim-colors-solarized'
  Plug 'tomasr/molokai'
 " Plug 'mhartington/oceanic-next'
 " Plug 'junegunn/seoul256.vim'
 
-" ----------- Others --------- 
+" ----------- Others ---------
 Plug 'mhinz/vim-signify'	" Show git diff via vim sign column
 "Plug 'Valloric/MatchTagAlways'	" Highlight balise (HTML) in which your cursor is
 Plug 'tpope/vim-surround'	" Use cs"' to replace things around a line
@@ -205,6 +205,12 @@ set showmatch                  " show matching brackets when typing
 " disable last one highlight
 nmap <LocalLeader>nh :nohlsearch<cr>
 
+" recursive search
+:nnoremap gr :grep <cword> *<CR>
+:nnoremap Gr :grep <cword> %:p:h/*<CR>
+:nnoremap gR :grep '\b<cword>\b' *<CR>
+:nnoremap GR :grep '\b<cword>\b' %:p:h/*<CR>
+
 set diffopt=filler,iwhite       " ignore all whitespace and sync
 
 " find git's merge conflict markers
@@ -217,8 +223,13 @@ set diffopt=filler,iwhite       " ignore all whitespace and sync
 au BufRead,BufNewFile *.asm set filetype=nasm " Overide filetype nasm for .asm files
 let g:syntastic_nasm_nasm_post_args = "-f elf64"
 
-" ---------- Go Specific ----------  
+" ---------- Go Specific ----------
 autocmd FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8 et
 
 " remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
+
+" enable CTRL + S for saving
+nnoremap <silent> <c-s> :update<cr>
+inoremap <silent> <c-s> <c-o>:update<cr>
+
