@@ -40,6 +40,7 @@ Plug 'scrooloose/nerdcommenter' " <Leader> ci to comment/uncomment or L-cm L-cs 
 Plug 'itchyny/lightline.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rhysd/conflict-marker.vim'
 "Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
@@ -69,6 +70,8 @@ if has('gui_running') " Setup for the visual environment
   set guioptions-=T
   set guioptions-=m
   set guioptions+=c
+	"set guioptions-=r
+	"set guioptions-=l
   if !has("unix")
     set guifont=Consolas:h10
     winsize 120 30
