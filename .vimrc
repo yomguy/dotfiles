@@ -45,8 +45,8 @@ Plug 'rhysd/conflict-marker.vim'
 "Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'junegunn/vim-easy-align'
-Plug 'python-mode/python-mode', { 'branch': 'master' }
+"Plug 'junegunn/vim-easy-align'
+"Plug 'python-mode/python-mode', { 'branch': 'master' }
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -140,6 +140,7 @@ set more                        " the 'more' prompt
 set autoread                    " watch for file changes by other programs
 "set vb t_vb=
 "set visualbell t_vb=
+set autochdir
 
 ":set patchmode=~                " only produce *~ if not there
 set noautowrite                 " don't automatically write on :next, etc
@@ -176,12 +177,12 @@ map <MouseMiddle> <esc>"*p
 " ---------------------------------------------------------------------------
 " global editing settings
 set autoindent smartindent cindent     " turn on auto/smart indenting
-" set expandtab                 " use spaces, not tabs
+set expandtab                 " use spaces, not tabs
 set smarttab                    " make <tab> and <backspace> smarter
-set shiftwidth=2                " indents of 2
-set tabstop=2
-set softtabstop=2
-"set backspace=eol,start,indent  " allow backspacing over indent, eol, & start
+set shiftwidth=4                " indents of 2
+set tabstop=4
+set softtabstop=4
+set backspace=eol,start,indent  " allow backspacing over indent, eol, & start
 set undolevels=1000             " number of forgivable mistakes
 set updatecount=100             " write swap file to disk every 100 chars
 set complete=.,w,b,u,U,t,i,d    " do lots of scanning on tab completion
