@@ -135,8 +135,35 @@ export TMPDIR=/var/tmp
 
 export EDITOR='vim'
 
-source ~/bin/tmuxinator.bash
+#source ~/bin/tmuxinator.bash
+
+export TERM=xterm-256color
 
 # disable CTRL + S : XOFF
 stty -ixon
+
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWCOLORHINTS=true # Option for git-prompt.sh to show branch name in color
+# Terminal Prompt:
+# Include git branch, use PROMPT_COMMAND (not PS1) to get color output (see git-prompt.sh for more)
+export PROMPT_COMMAND='__git_ps1 "\u@\h \W" "\\\$ "' # Git branch (relies on git-prompt.sh)
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+#export GIT_PS1_SHOWDIRTYSTATE=1
+#export PS1='\w$(__git_ps1 " (%s)")\$ '
+#export PROMPT_COMMAND='__git_ps1 "\u@\h:\w" " \\\$ "'
+#export GIT_PS1_SHOWCOLORHINTS=1
+
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#source ~/apps/edit/powerline/powerline/bindings/bash/powerline.sh
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 

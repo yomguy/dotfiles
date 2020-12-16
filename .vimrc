@@ -21,6 +21,7 @@ Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'posva/vim-vue'
+"Plug 'python-mode/python-mode', { 'branch': 'master' }
 "Plug 'StanAngeloff/php.vim'
 " Plug 'LeBarbu/vim-epitech'	          " Headers && indentation stuff
 " Plug 'klen/python-mode'
@@ -34,10 +35,11 @@ Plug 'posva/vim-vue'
 
 " ----------- Others ---------
 Plug 'mhinz/vim-signify'	" Show git diff via vim sign column
-"Plug 'Valloric/MatchTagAlways'	" Highlight balise (HTML) in which your cursor is
+Plug 'Valloric/MatchTagAlways'	" Highlight balise (HTML) in which your cursor is
 Plug 'tpope/vim-surround'	" Use cs"' to replace things around a line
 Plug 'scrooloose/nerdcommenter' " <Leader> ci to comment/uncomment or L-cm L-cs L-cc L-cu
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -46,8 +48,11 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'junegunn/vim-easy-align'
-"Plug 'python-mode/python-mode', { 'branch': 'master' }
 Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
+
+Plug 'terryma/vim-multiple-cursors'
+Plug 'dkprice/vim-easygrep'
 
 call plug#end()
 
@@ -129,7 +134,7 @@ let g:go_fmt_command = "goimports"
 "  endif
 "endfunction
 
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-m> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " ---------------------------------------------------------------------------
@@ -152,7 +157,7 @@ set showcmd
 
 " ---------------------------------------------------------------------------
 " window spacing
-set cmdheight=2                 " make command line two lines high
+"set cmdheight=2                 " make command line two lines high
 set ruler                       " show the line number on bar
 set lazyredraw                  " don't redraw when running macros
 set number                      " show line number on each line
@@ -161,6 +166,10 @@ set number                      " show line number on each line
 
 map <LocalLeader>w+ 100<C-w>+  " grow by 100
 map <LocalLeader>w- 100<C-w>-  " shrink by 100
+
+" default split
+set splitbelow
+set splitright
 
 " ---------------------------------------------------------------------------
 " mouse settings
@@ -236,4 +245,10 @@ autocmd BufWritePre * %s/\s\+$//e
 " enable CTRL + S for saving
 nnoremap <silent> <c-s> :update<cr>
 inoremap <silent> <c-s> <c-o>:update<cr>
+
+" enable CTRL + C for copying
+vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+
+" multiple paste
+xnoremap p pgvy
 
